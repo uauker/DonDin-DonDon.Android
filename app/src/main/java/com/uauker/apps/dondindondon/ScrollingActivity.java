@@ -34,15 +34,6 @@ public class ScrollingActivity extends AppCompatActivity {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         this.setButtons();
     }
 
@@ -84,6 +75,7 @@ public class ScrollingActivity extends AppCompatActivity {
             }
         });
 
+        this.fab = (FloatingActionButton) findViewById(R.id.fab);
         this.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
