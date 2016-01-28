@@ -17,6 +17,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import timber.log.Timber;
+
 public class ScrollingActivity extends AppCompatActivity {
 
     Button btnDonDin;
