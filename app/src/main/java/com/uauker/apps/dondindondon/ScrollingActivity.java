@@ -21,6 +21,8 @@ import timber.log.Timber;
 
 public class ScrollingActivity extends AppCompatActivity {
 
+    FloatingActionButton fab;
+
     Button btnDonDin;
     Button btnDonDon;
 
@@ -32,7 +34,7 @@ public class ScrollingActivity extends AppCompatActivity {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,5 +139,7 @@ public class ScrollingActivity extends AppCompatActivity {
     public void setButtonsEnabled(final boolean enabled) {
         this.btnDonDin.setEnabled(enabled);
         this.btnDonDon.setEnabled(enabled);
+
+        this.fab.setEnabled(enabled);
     }
 }
