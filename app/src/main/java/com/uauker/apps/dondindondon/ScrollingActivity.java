@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -88,35 +89,28 @@ public class ScrollingActivity extends AppCompatActivity {
         });
     }
 
-    private FileInputStream playAudio(final int rawAudio) {
-        try {
-            final InputStream is = getResources().openRawResource(rawAudio);
+    private FileInputStream playAudio(final int rawAudio) throws IOException {
+        final InputStream is = getResources().openRawResource(rawAudio);
 
-            // create file to store audio
-            final File mediaFile = new File(this.getCacheDir(), "tmp");
-            final FileOutputStream fos = new FileOutputStream(mediaFile);
-            final byte buf[] = new byte[16 * 1024];
+        // create file to store audio
+        final File mediaFile = new File(this.getCacheDir(), "tmp");
+        final FileOutputStream fos = new FileOutputStream(mediaFile);
+        final byte buf[] = new byte[16 * 1024];
 
-            // write to file until complete
-            do {
-                final int numread = is.read(buf);
+        // write to file until complete
+        do {
+            final int numread = is.read(buf);
 
-                if (numread <= 0) {
-                    break;
-                }
+            if (numread <= 0) {
+                break;
+            }
 
-                fos.write(buf, 0, numread);
-            } while (true);
+            fos.write(buf, 0, numread);
+        } while (true);
 
-            fos.flush();
-            fos.close();
+        fos.flush();
+        fos.close();
 
-            return new FileInputStream(mediaFile);
-        } catch (Exception e) {
-            //TODO:tratar erro
-            e.printStackTrace();
-        }
-        //TODO:null eh feio... exception por favor
-        return null;
+        return new FileInputStream(mediaFile);
     }
 }
