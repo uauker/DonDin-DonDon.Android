@@ -83,6 +83,18 @@ public class ScrollingActivity extends AppCompatActivity {
                 play(R.raw.dondon);
             }
         });
+
+        this.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                play(R.raw.dondin, new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mediaPlayer) {
+                        play(R.raw.dondon);
+                    }
+                });
+            }
+        });
     }
 
 
