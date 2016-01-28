@@ -1,7 +1,6 @@
 package com.uauker.apps.dondindondon;
 
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,12 +13,9 @@ import android.widget.Button;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 
 public class ScrollingActivity extends AppCompatActivity {
 
@@ -75,7 +71,7 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    FileInputStream file = playAudio(R.raw.dondin);
+                    FileInputStream file = prepareAudioFile(R.raw.dondin);
 
                     final MediaPlayer mediaPlayer = new MediaPlayer();
                     mediaPlayer.setDataSource(file.getFD());
@@ -89,7 +85,7 @@ public class ScrollingActivity extends AppCompatActivity {
         });
     }
 
-    private FileInputStream playAudio(final int rawAudio) throws IOException {
+    private FileInputStream prepareAudioFile(final int rawAudio) throws IOException {
         final InputStream is = getResources().openRawResource(rawAudio);
 
         // create file to store audio
