@@ -74,10 +74,7 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    final Uri uri = Uri.parse(String.format("android-resource://%s/%s", getPackageName(), R.raw.dondin));
-
-
-                    FileInputStream file = playAudio("dondin.m4a");
+                    FileInputStream file = playAudio(R.raw.dondin);
 
                     final MediaPlayer mediaPlayer = new MediaPlayer();
                     mediaPlayer.setDataSource(file.getFD());
@@ -91,9 +88,9 @@ public class ScrollingActivity extends AppCompatActivity {
         });
     }
 
-    private FileInputStream playAudio(final String mediaUrl) {
+    private FileInputStream playAudio(final int rawAudio) {
         try {
-            final InputStream is = getResources().openRawResource(R.raw.dondin);
+            final InputStream is = getResources().openRawResource(rawAudio);
 
             // create file to store audio
             final File mediaFile = new File(this.getCacheDir(), "tmp");
