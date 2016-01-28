@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Don Din, Don Don</string>
-    <string name="large_text">
-        "Material is the metaphor.\n\n"
-    </string>
+
     <string name="action_settings">Settings</string>
+
+    <string name="don_din">Don Din</string>
+    <string name="don_don">Don Don</string>
 </resources>
