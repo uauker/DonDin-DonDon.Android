@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import com.uauker.apps.dondindondon.R;
+import com.uauker.apps.dondindondon.helpers.AudioHelper;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,7 +22,7 @@ import java.io.InputStream;
 
 import timber.log.Timber;
 
-public class ScrollingActivity extends AppCompatActivity {
+public final class ScrollingActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
 
@@ -105,7 +106,7 @@ public class ScrollingActivity extends AppCompatActivity {
         try {
             setButtonsEnabled(false);
 
-            final FileInputStream file = prepareAudioFile(rawAudio);
+            final FileInputStream file = AudioHelper.prepareAudioFile(this, rawAudio);
 
             final MediaPlayer mediaPlayer = new MediaPlayer();
             mediaPlayer.setOnCompletionListener(listener);
@@ -118,31 +119,6 @@ public class ScrollingActivity extends AppCompatActivity {
             //TODO: Tratar o erro
             e.printStackTrace();
         }
-    }
-
-    private FileInputStream prepareAudioFile(final int rawAudio) throws IOException {
-        final InputStream is = getResources().openRawResource(rawAudio);
-
-        // create file to store audio
-        final File mediaFile = new File(this.getCacheDir(), "tmp");
-        final FileOutputStream fos = new FileOutputStream(mediaFile);
-        final byte buf[] = new byte[16 * 1024];
-
-        // write to file until complete
-        do {
-            final int numread = is.read(buf);
-
-            if (numread <= 0) {
-                break;
-            }
-
-            fos.write(buf, 0, numread);
-        } while (true);
-
-        fos.flush();
-        fos.close();
-
-        return new FileInputStream(mediaFile);
     }
 
     public void setButtonsEnabled(final boolean enabled) {
