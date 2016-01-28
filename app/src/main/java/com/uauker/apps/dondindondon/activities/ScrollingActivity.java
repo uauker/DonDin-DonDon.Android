@@ -1,4 +1,4 @@
-package com.uauker.apps.dondindondon;
+package com.uauker.apps.dondindondon.activities;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+
+import com.uauker.apps.dondindondon.R;
 
 import java.io.File;
 import java.io.FileInputStream;
