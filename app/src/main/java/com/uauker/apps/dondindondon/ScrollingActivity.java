@@ -86,20 +86,24 @@ public class ScrollingActivity extends AppCompatActivity {
         });
     }
 
+
     private void play(final int rawAudio) {
+        play(rawAudio, new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                setButtonsEnabled(true);
+            }
+        });
+    }
+
+    private void play(final int rawAudio, final MediaPlayer.OnCompletionListener listener) {
         try {
             setButtonsEnabled(false);
 
             final FileInputStream file = prepareAudioFile(rawAudio);
 
             final MediaPlayer mediaPlayer = new MediaPlayer();
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mediaPlayer) {
-                    setButtonsEnabled(true);
-                }
-            });
-
+            mediaPlayer.setOnCompletionListener(listener);
             mediaPlayer.setDataSource(file.getFD());
             mediaPlayer.prepare();
             mediaPlayer.start();
