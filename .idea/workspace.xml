@@ -60,11 +60,11 @@
       <file leaf-file-name="ScrollingActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/uauker/apps/dondindondon/ScrollingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.610052">
-              <caret line="81" column="40" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.40207973">
+              <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
               <folding>
-                <element signature="e#2294#2870#0" expanded="true" />
-                <element signature="e#2869#2870#0" expanded="true" />
+                <element signature="e#2294#2876#0" expanded="true" />
+                <element signature="e#2875#2876#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2008,11 +2008,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/uauker/apps/dondindondon/ScrollingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.610052">
-          <caret line="81" column="40" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.40207973">
+          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
           <folding>
-            <element signature="e#2294#2870#0" expanded="true" />
-            <element signature="e#2869#2870#0" expanded="true" />
+            <element signature="e#2294#2876#0" expanded="true" />
+            <element signature="e#2875#2876#0" expanded="true" />
           </folding>
         </state>
       </provider>

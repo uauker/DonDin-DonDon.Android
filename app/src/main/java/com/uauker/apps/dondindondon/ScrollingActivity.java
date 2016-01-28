@@ -71,7 +71,7 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    FileInputStream file = prepareAudioFile(R.raw.dondin);
+                    final FileInputStream file = prepareAudioFile(R.raw.dondin);
 
                     final MediaPlayer mediaPlayer = new MediaPlayer();
                     mediaPlayer.setDataSource(file.getFD());
