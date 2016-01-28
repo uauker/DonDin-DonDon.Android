@@ -69,8 +69,6 @@ public class ScrollingActivity extends AppCompatActivity {
 
     private void setButtons() {
         this.btnDonDin = (Button) findViewById(R.id.don_din);
-        this.btnDonDon = (Button) findViewById(R.id.don_don);
-
         this.btnDonDin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +76,7 @@ public class ScrollingActivity extends AppCompatActivity {
             }
         });
 
+        this.btnDonDon = (Button) findViewById(R.id.don_don);
         this.btnDonDon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
