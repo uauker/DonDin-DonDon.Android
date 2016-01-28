@@ -70,19 +70,41 @@ public class ScrollingActivity extends AppCompatActivity {
         this.btnDonDin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    final FileInputStream file = prepareAudioFile(R.raw.dondin);
-
-                    final MediaPlayer mediaPlayer = new MediaPlayer();
-                    mediaPlayer.setDataSource(file.getFD());
-                    mediaPlayer.prepare();
-                    mediaPlayer.start();
-                } catch (IOException e) {
-                    //TODO: Tratar o erro
-                    e.printStackTrace();
-                }
+                play(R.raw.dondin);
             }
         });
+
+        this.btnDonDon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                play(R.raw.dondon);
+            }
+        });
+    }
+
+    private void play(final int rawAudio) {
+        try {
+            setButtonsEnabled(false);
+
+            final FileInputStream file = prepareAudioFile(rawAudio);
+
+            final MediaPlayer mediaPlayer = new MediaPlayer();
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    setButtonsEnabled(true);
+                }
+            });
+
+            mediaPlayer.setDataSource(file.getFD());
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            setButtonsEnabled(true);
+
+            //TODO: Tratar o erro
+            e.printStackTrace();
+        }
     }
 
     private FileInputStream prepareAudioFile(final int rawAudio) throws IOException {
@@ -108,5 +130,10 @@ public class ScrollingActivity extends AppCompatActivity {
         fos.close();
 
         return new FileInputStream(mediaFile);
+    }
+
+    public void setButtonsEnabled(final boolean enabled) {
+        this.btnDonDin.setEnabled(enabled);
+        this.btnDonDon.setEnabled(enabled);
     }
 }
