@@ -30,6 +30,14 @@ public final class ScrollingActivity extends AppCompatActivity {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Intent i = new Intent(ScrollingActivity.this, SliderActivity.class);
+                startActivity(i);
+            }
+        });
+
         this.setButtons();
     }
 
@@ -38,9 +46,7 @@ public final class ScrollingActivity extends AppCompatActivity {
         this.btnDonDin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                play(R.raw.dondin);
-                final Intent i = new Intent(ScrollingActivity.this, SliderActivity.class);
-                startActivity(i);
+                play(R.raw.dondin);
             }
         });
 
