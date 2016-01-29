@@ -1,5 +1,6 @@
 package com.uauker.apps.dondindondon.activities;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -28,6 +29,14 @@ public final class ScrollingActivity extends AppCompatActivity {
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Intent i = new Intent(ScrollingActivity.this, SliderActivity.class);
+                startActivity(i);
+            }
+        });
 
         this.setButtons();
     }
