@@ -31,9 +31,11 @@ public final class SliderActivity extends Activity implements BaseSliderView.OnS
 
             this.player = AudioHelper.play(this, R.raw.chaves, true, null);
 
+            //TODO: que coisa feia, tem q mudar isso
             HashMap<String, Integer> file_maps = new HashMap<>();
-            file_maps.put("001", android.R.drawable.alert_dark_frame);
-            file_maps.put("002", android.R.drawable.ic_notification_clear_all);
+            file_maps.put("001", R.drawable.f001);
+            file_maps.put("002", R.drawable.f002);
+            file_maps.put("003", R.drawable.f003);
 
             for (String name : file_maps.keySet()) {
                 TextSliderView textSliderView = new TextSliderView(this);
