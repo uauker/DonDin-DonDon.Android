@@ -12,14 +12,21 @@ import java.io.InputStream;
 
 public final class AudioHelper {
 
-    public static void play(final Context context, final int rawAudio, final MediaPlayer.OnCompletionListener listener) throws IOException {
+    public static MediaPlayer play(final Context context, final int rawAudio, final MediaPlayer.OnCompletionListener listener) throws IOException {
+        return play(context, rawAudio, false, listener);
+    }
+
+    public static MediaPlayer play(final Context context, final int rawAudio, final boolean repeat, final MediaPlayer.OnCompletionListener listener) throws IOException {
         final FileInputStream file = AudioHelper.prepareAudioFile(context, rawAudio);
 
         final MediaPlayer mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnCompletionListener(listener);
         mediaPlayer.setDataSource(file.getFD());
+        mediaPlayer.setLooping(repeat);
         mediaPlayer.prepare();
         mediaPlayer.start();
+
+        return mediaPlayer;
     }
 
     public static FileInputStream prepareAudioFile(final Context context, final int rawAudio) throws IOException {
