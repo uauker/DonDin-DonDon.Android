@@ -1,5 +1,6 @@
 package com.uauker.apps.dondindondon.activities;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -37,7 +38,9 @@ public final class ScrollingActivity extends AppCompatActivity {
         this.btnDonDin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                play(R.raw.dondin);
+//                play(R.raw.dondin);
+                final Intent i = new Intent(ScrollingActivity.this, SliderActivity.class);
+                startActivity(i);
             }
         });
 
