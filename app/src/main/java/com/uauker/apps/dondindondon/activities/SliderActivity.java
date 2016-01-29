@@ -3,7 +3,6 @@ package com.uauker.apps.dondindondon.activities;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
