@@ -46,7 +46,7 @@ public final class ScrollingActivity extends AppCompatActivity {
         this.btnDonDin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                play(R.raw.dondin);
+                play(R.raw.luiz_dondin);
             }
         });
 
@@ -54,7 +54,7 @@ public final class ScrollingActivity extends AppCompatActivity {
         this.btnDonDon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                play(R.raw.dondon);
+                play(R.raw.luiz_dondon);
             }
         });
 
@@ -62,10 +62,10 @@ public final class ScrollingActivity extends AppCompatActivity {
         this.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                play(R.raw.dondin, new MediaPlayer.OnCompletionListener() {
+                play(R.raw.luiz_dondin, new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mediaPlayer) {
-                        play(R.raw.dondon);
+                        play(R.raw.luiz_dondon);
                     }
                 });
             }
