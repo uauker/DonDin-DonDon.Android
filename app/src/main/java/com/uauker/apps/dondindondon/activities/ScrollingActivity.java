@@ -3,24 +3,17 @@ package com.uauker.apps.dondindondon.activities;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 
 import com.uauker.apps.dondindondon.R;
 import com.uauker.apps.dondindondon.helpers.AudioHelper;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-
-import timber.log.Timber;
 
 public final class ScrollingActivity extends AppCompatActivity {
 
@@ -104,6 +97,9 @@ public final class ScrollingActivity extends AppCompatActivity {
         this.btnDonDin.setEnabled(enabled);
         this.btnDonDon.setEnabled(enabled);
 
+        final int fabIcon = enabled ? android.R.drawable.ic_media_play : android.R.drawable.ic_media_pause;
+
         this.fab.setEnabled(enabled);
+        this.fab.setImageDrawable(ContextCompat.getDrawable(this, fabIcon));
     }
 }
