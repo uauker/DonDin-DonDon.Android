@@ -12,7 +12,6 @@ import android.widget.Button;
 import com.uauker.apps.dondindondon.R;
 import com.uauker.apps.dondindondon.helpers.AudioHelper;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 
 public final class ScrollingActivity extends AppCompatActivity {
@@ -78,13 +77,7 @@ public final class ScrollingActivity extends AppCompatActivity {
         try {
             setButtonsEnabled(false);
 
-            final FileInputStream file = AudioHelper.prepareAudioFile(this, rawAudio);
-
-            final MediaPlayer mediaPlayer = new MediaPlayer();
-            mediaPlayer.setOnCompletionListener(listener);
-            mediaPlayer.setDataSource(file.getFD());
-            mediaPlayer.prepare();
-            mediaPlayer.start();
+            AudioHelper.play(this, rawAudio, listener);
         } catch (IOException e) {
             setButtonsEnabled(true);
 
